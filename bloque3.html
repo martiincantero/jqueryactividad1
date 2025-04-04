@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloque 3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .resaltado {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="imagen" src="imagen1.png" alt="Foto" width="200">
+    <button id="cambiarSrc">Cambiar Imagen</button>
+    <button id="cambiarAlt">Cambiar Alt</button>
+
+    <p class="normal">Párrafo con clase normal</p>
+    <button id="añadirClase">Añadir Clase</button>
+    <button id="quitarClase">Quitar Clase</button>
+    <button id="alternarClase">Alternar Clase</button>
+    <hr>
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="boton-anterior">⬅ Anterior</button>
+        <button id="boton-siguiente">Siguiente ➡</button>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#cambiarSrc").click(function() {
+                $("#imagen").attr("src", "imagen2.png");
+            });
+
+            $("#cambiarAlt").click(function() {
+                $("#imagen").attr("alt", "Imagen cambiada");
+            });
+
+            $("#añadirClase").click(function() {
+                $("p.normal").addClass("resaltado");
+            });
+
+            $("#quitarClase").click(function() {
+                $("p.normal").removeClass("resaltado");
+            });
+
+            $("#alternarClase").click(function() {
+                $("p.normal").toggleClass("resaltado");
+            });
+        });
+
+        document.getElementById('boton-anterior').addEventListener('click', () => {
+    window.location.href = 'bloque2.html'; 
+});
+
+document.getElementById('boton-siguiente').addEventListener('click', () => {
+    window.location.href = 'bloque4.html'; 
+});
+    </script>
+
+</body>
+</html>

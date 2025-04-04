@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloque 4</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <ul>
+        <li class="item">Elemento 1</li>
+        <li class="item">Elemento 2</li>
+        <li class="item">Elemento 3</li>
+    </ul>
+
+    <div class="caja" id="hoverCaja" style="width:100px; height:100px; background:gray;"></div>
+    <hr>
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="boton-anterior">⬅ Anterior</button>
+        <button id="boton-siguiente">Siguiente ➡</button>
+    </div>
+    <script>
+        $(function() {
+            $(".item").click(function() {
+                $(this).text("¡Clic detectado!");
+            });
+
+            $("#hoverCaja").on("mouseover", function() {
+                $(this).css("background-color", "blue");
+            });
+
+            $("#hoverCaja").on("mouseout", function() {
+                $(this).css("background-color", "gray");
+            });
+        });
+        document.getElementById('boton-anterior').addEventListener('click', () => {
+    window.location.href = 'bloque3.html';
+});
+
+document.getElementById('boton-siguiente').addEventListener('click', () => {
+    window.location.href = 'bloque5.html'; 
+});
+    </script>
+
+</body>
+</html>

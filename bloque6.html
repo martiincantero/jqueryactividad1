@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloque 6 Extra</title>
+    <style>
+/* Estilos generales */
+:root {
+    --color-primary: #4a6fa5;
+    --color-secondary: #6b8cbc;
+    --color-accent: #ff6b6b;
+    --color-background: #f8f9fa;
+    --color-text: #333;
+    --color-success: #28a745;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-secondary);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0;
+}
+
+/* Botones */
+button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+}
+
+button:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#boton-crear-parrafo {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Contenedor de párrafos */
+#contenedor-parrafos {
+    margin-top: 20px;
+    min-height: 50px;
+}
+
+#contenedor-parrafos p {
+    background-color: white;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin: 10px 0;
+    box-shadow: var(--box-shadow);
+    border-left: 4px solid var(--color-secondary);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Formulario */
+#formulario {
+    background-color: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.campo-texto {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.campo-texto:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(107, 140, 188, 0.2);
+}
+
+#formulario button {
+    margin-top: 10px;
+    background-color: var(--color-accent);
+    width: 100%;
+}
+
+#formulario button:hover {
+    background-color: #ff5252;
+}
+
+.mensaje {
+    color: var(--color-success);
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: var(--border-radius);
+    display: none;
+}
+
+.mensaje:not(:empty) {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Diseño responsivo */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+    
+    #formulario {
+        padding: 15px;
+    }
+    
+    .campo-texto {
+        padding: 10px;
+    }
+}
+
+     </style>
+</head>
+<body>
+    <h1>Bloque 6: Extra</h1>
+
+    <!-- Botón para crear elementos dinámicamente -->
+    <button id="boton-crear-parrafo">Crear párrafo</button>
+    <div id="contenedor-parrafos"></div>
+
+    <hr>
+
+    <!-- Formulario -->
+    <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" class="campo-texto" required>
+        <br><br>
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" class="campo-texto" required>
+        <br><br>
+        <button type="submit">Enviar</button>
+        <hr>
+<div style="text-align: center; margin-top: 20px;">
+    <button id="boton-anterior">⬅ Anterior</button>
+    <button id="boton-siguiente">Siguiente ➡</button>
+</div>
+    </form>
+    <p id="mensaje-formulario" class="mensaje"></p>
+
+    <script>
+        // Funcionalidad para crear párrafos dinámicamente
+        const botonCrearParrafo = document.getElementById('boton-crear-parrafo');
+        const contenedorParrafos = document.getElementById('contenedor-parrafos');
+
+        botonCrearParrafo.addEventListener('click', () => {
+            const nuevoParrafo = document.createElement('p');
+            nuevoParrafo.textContent = 'Este es un nuevo párrafo creado dinámicamente.';
+            contenedorParrafos.append(nuevoParrafo);
+        });
+
+        // Capturar el evento submit del formulario
+        const formulario = document.getElementById('formulario');
+        const mensajeFormulario = document.getElementById('mensaje-formulario');
+
+        formulario.addEventListener('submit', (evento) => {
+            evento.preventDefault(); // Evitar recarga de la página
+            mensajeFormulario.textContent = 'Formulario recibido';
+        });
+        document.getElementById('boton-anterior').addEventListener('click', () => {
+    window.location.href = 'bloque5.html';
+});
+
+document.getElementById('boton-siguiente').addEventListener('click', () => {
+    window.location.href = 'bloque1.html'; 
+});
+    </script>
+</body>
+</html>

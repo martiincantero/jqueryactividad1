@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloque 2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <input type="text" id="textodelinput">
+    <button id="mostrarTexto">Mostrar</button>
+    <button id="limpiarTexto">Limpiar</button>
+    <p id="resultado"></p>
+    <hr>
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="boton-anterior">⬅ Anterior</button>
+        <button id="boton-siguiente">Siguiente ➡</button>
+    </div>
+    <script>
+        $(function() {
+            $("#mostrarTexto").click(function() {
+                $("#resultado").text($("#textodelinput").val());
+            });
+
+            $("#limpiarTexto").click(function() {
+                $("#textodelinput").val("");
+                $("#resultado").text("");
+            });
+        });
+        // Botones de navegación entre bloques
+document.getElementById('boton-anterior').addEventListener('click', () => {
+    window.location.href = 'bloque1.html'; 
+});
+
+document.getElementById('boton-siguiente').addEventListener('click', () => {
+    window.location.href = 'bloque3.html';
+});
+
+    </script>
+
+</body>
+</html>

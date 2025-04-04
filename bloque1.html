@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloque 1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .caja {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+        }
+        .rojo {
+            background-color: red;
+        }
+        .verde {
+            background-color: green;
+        }
+        .azul {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Texto original 1</p>
+    <p>Texto original 2</p>
+    <p>Texto original 3</p>
+    <button id="modificarTexto">Modificar Párrafos</button>
+
+    <div id="contenedor"></div>
+    <button id="agregarLista">Agregar Lista</button>
+
+    <div class="caja rojo"></div>
+    <div class="caja verde"></div>
+    <div class="caja azul"></div>
+    <button id="cambiarColor">Cambiar Colores</button>
+    <hr>
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="boton-anterior">⬅ Anterior</button>
+        <button id="boton-siguiente">Siguiente ➡</button>
+    </div>
+    
+    <script>
+        $(function() {
+            $("#modificarTexto").click(function() {
+                $("p").text("Modificado con jQuery");
+            });
+
+            $("#agregarLista").click(function() {
+                $("#contenedor").html("<ul><li>Elemento 1</li><li>Elemento 2</li></ul>");
+            });
+
+            $("#cambiarColor").click(function() {
+                $(".rojo").css("background-color", "purple");
+                $(".verde").css("background-color", "orange");
+                $(".azul").css("background-color", "pink");
+            });
+        });
+
+document.getElementById('boton-anterior').addEventListener('click', () => {
+    window.location.href = 'bloque6.html'; 
+});
+
+document.getElementById('boton-siguiente').addEventListener('click', () => {
+    window.location.href = 'bloque2.html'; 
+});
+
+    </script>
+
+</body>
+</html> 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloque 5</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .animacion {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="divanimado" style="width:100px; height:100px; background:gray;"></div>
+    <button id="fadeOut">Ocultar</button>
+    <button id="fadeIn">Mostrar</button>
+
+    <div class="panel" style="width:200px; height:100px; background:lightgray; display:none;"></div>
+    <button id="mostrarocultar">Mostrar/Ocultar Panel</button>
+
+    <div class="animacion"></div>
+    <button id="animar">Animar</button>
+    <button id="encadenar">Encadenar Animaciones</button>
+    <hr>
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="boton-anterior">⬅ Anterior</button>
+        <button id="boton-siguiente">Siguiente ➡</button>
+    </div>
+    <script>
+        $(function() {
+            $("#fadeOut").click(function() {
+                $("#divanimado").fadeOut();
+            });
+
+            $("#fadeIn").click(function() {
+                $("#divanimado").fadeIn();
+            });
+
+            $("#mostrarocultar").click(function() {
+                $(".panel").mostrarocultar();
+            });
+
+            $("#animar").click(function() {
+                $(".animacion").animate({
+                    width: "200px",
+                    height: "200px",
+                    opacity: 0.5
+                });
+            });
+
+            $("#encadenar").click(function() {
+                $(".animacion")
+                    .fadeOut()
+                    .fadeIn()
+                    .animate({width: "150px", height: "150px"})
+                    .animate({width: "100px", height: "100px"});
+            });
+        });
+        document.getElementById('boton-anterior').addEventListener('click', () => {
+    window.location.href = 'bloque4.html';
+});
+
+document.getElementById('boton-siguiente').addEventListener('click', () => {
+    window.location.href = 'bloque6.html'; 
+});
+    </script>
+
+</body>
+</html>
