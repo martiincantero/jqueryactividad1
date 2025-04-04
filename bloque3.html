@@ -26,13 +26,21 @@
         <button id="boton-siguiente">Siguiente ➡</button>
     </div>
     <script>
-        $(document).ready(function() {
+        $(function() {
+            let imagenActual = "imagen1.png";
             $("#cambiarSrc").click(function() {
-                $("#imagen").attr("src", "imagen2.png");
+                if (imagenActual === "imagen1.png") {
+                    $("#imagen").attr("src", "imagen2.png");
+                    imagenActual = "imagen2.png";
+                } else {
+                    $("#imagen").attr("src", "imagen1.png");
+                    imagenActual = "imagen1.png";
+                }
             });
 
             $("#cambiarAlt").click(function() {
                 $("#imagen").attr("alt", "Imagen cambiada");
+                alert("Alt cambiado a: " + $("#imagen").attr("alt")); 
             });
 
             $("#añadirClase").click(function() {
@@ -46,15 +54,15 @@
             $("#alternarClase").click(function() {
                 $("p.normal").toggleClass("resaltado");
             });
+
+            $("#boton-anterior").click(function() {
+                window.location.href = 'bloque2.html';
+            });
+
+            $("#boton-siguiente").click(function() {
+                window.location.href = 'bloque4.html';
+            });
         });
-
-        document.getElementById('boton-anterior').addEventListener('click', () => {
-    window.location.href = 'bloque2.html'; 
-});
-
-document.getElementById('boton-siguiente').addEventListener('click', () => {
-    window.location.href = 'bloque4.html'; 
-});
     </script>
 
 </body>

@@ -11,6 +11,13 @@
             background-color: pink;
             position: relative;
         }
+        .panel {
+            width: 200px;
+            height: 100px;
+            background: lightgray;
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -19,17 +26,20 @@
     <button id="fadeOut">Ocultar</button>
     <button id="fadeIn">Mostrar</button>
 
-    <div class="panel" style="width:200px; height:100px; background:lightgray; display:none;"></div>
-    <button id="mostrarocultar">Mostrar/Ocultar Panel</button>
+    <div class="panel"></div>
+    <button id="slideUp">Ocultar Panel</button>
+    <button id="slideDown">Mostrar Panel</button>
 
     <div class="animacion"></div>
     <button id="animar">Animar</button>
     <button id="encadenar">Encadenar Animaciones</button>
+
     <hr>
     <div style="text-align: center; margin-top: 20px;">
         <button id="boton-anterior">⬅ Anterior</button>
         <button id="boton-siguiente">Siguiente ➡</button>
     </div>
+
     <script>
         $(function() {
             $("#fadeOut").click(function() {
@@ -40,8 +50,12 @@
                 $("#divanimado").fadeIn();
             });
 
-            $("#mostrarocultar").click(function() {
-                $(".panel").mostrarocultar();
+            $("#slideUp").click(function() {
+                $(".panel").slideUp();
+            });
+
+            $("#slideDown").click(function() {
+                $(".panel").slideDown();
             });
 
             $("#animar").click(function() {
@@ -49,24 +63,27 @@
                     width: "200px",
                     height: "200px",
                     opacity: 0.5
-                });
+                }, 1000, function() {
+                    alert("Animación completada"); 
+                                });
             });
 
             $("#encadenar").click(function() {
                 $(".animacion")
-                    .fadeOut()
-                    .fadeIn()
-                    .animate({width: "150px", height: "150px"})
-                    .animate({width: "100px", height: "100px"});
+                    .fadeOut(500)
+                    .fadeIn(500)
+                    .animate({width: "150px", height: "150px"}, 500)
+                    .animate({width: "100px", height: "100px"}, 500);
+            });
+
+            $("#boton-anterior").click(function() {
+                window.location.href = 'bloque4.html';
+            });
+
+            $("#boton-siguiente").click(function() {
+                window.location.href = 'bloque6.html';
             });
         });
-        document.getElementById('boton-anterior').addEventListener('click', () => {
-    window.location.href = 'bloque4.html';
-});
-
-document.getElementById('boton-siguiente').addEventListener('click', () => {
-    window.location.href = 'bloque6.html'; 
-});
     </script>
 
 </body>
